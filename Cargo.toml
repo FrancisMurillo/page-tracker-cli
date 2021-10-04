@@ -1,0 +1,27 @@
+# cargo-features = ["strip"]
+
+[package]
+name = "page-tracker"
+version = "0.1.0"
+authors = ["Francis Murillo <francis.murillo@protonmail.com>"]
+edition = "2018"
+
+[profile.release]
+# strip = true
+opt-level = "z"
+lto = true
+# codegen-units = 1
+
+[dependencies]
+anyhow = { version = "1.0.44" }
+chrono = { version = "0.4.19" }
+csv = { version = "1.1.6" }
+env_logger = { version = "0.9.0" }
+futures = { version = "0.3.17" }
+log = { version = "0.4.14" }
+percent-encoding = { version = "2.1.0" }
+reqwest = { version = "0.11.4", default-features = false, features = ["json", "default-tls"] }
+serde = { version = "1.0.59", features = ["derive"] }
+serde_json = { version = "1.0.59" }
+structopt = { version = "0.3.23", default-features = false }
+tokio = { version = "1.12.0", default-features = false, features = ["macros", "rt-multi-thread"] }
